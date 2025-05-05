@@ -54,7 +54,7 @@ jobs:
       with:
     # C/C++test workspace will be created in '../workspace'.
     # C/C++test will create a new project based on the provided .bdf file.
-        commandLinePattern: '${cpptestcli} -data ../workspace -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams}'
+        commandLinePattern: '${cpptestcli} -data ../workspace -report "${reportDir}" -bdf "${input}" ${additionalParams}'
         additionalParams: '-config "builtin://MISRA C 2023 (MISRA C 2012)"' 
         
 
