@@ -50,12 +50,11 @@ jobs:
 
     # Runs code analysis with C/C++test.
     - name: Run C/C++test
-      # Use the 'run-cpptest-action' GitHub action.
       uses: parasoft/run-cpptest-action@2.0.2
-      # Optional parameters for 'run-cpptest-action'.
       with:
-        # For CMake-based projects, use a compile_commands.json file as the input for analysis. 
-        input: build/compile_commands.json
+    # C/C++test workspace will be created in '../workspace'.
+    # C/C++test will create a new project based on the provided .bdf file.
+        commandLinePattern: '${cpptestcli} -data ../workspace -config "${testConfig}" -report "${reportDir}" -bdf "${input}" ${additionalParams}'
         additionalParams: '-config "builtin://MISRA C 2023 (MISRA C 2012)"' 
         
 
